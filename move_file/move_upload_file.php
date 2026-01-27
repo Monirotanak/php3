@@ -9,9 +9,10 @@
 </head>
 <body>
     <div class="container w-50 mt-3 p-5 shadow rounded-3">
-        <form action="">
+        <form action="move.php" method="post" enctype="multipart/form-data">
             <image id="image" src="https://i.pinimg.com/736x/3d/bb/d4/3dbbd43848d2376220f70c88489d6fd6.jpg" width="200px" height="200px" class="rounded-circle" alt="">
-            <input id="file" type="file" class="form-control">
+            <input  name="file" id="file" type="file" class="form-control"> <br>
+            <button name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>
