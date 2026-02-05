@@ -18,15 +18,19 @@
             $dis=30;
         }
         $payment=$total-($total*$dis/100);
-        $file=$_FILES['file']['name'];
-        $tmp_name=$_FILES['file']['tmp_name'];
-        $path='image/'.$file;
-        move_uploaded_file($tmp_name,$path);
-        $update="UPDATE tbl_product SET pro_name='$name',qty='$qty',price='$price',
-        total='$total',discount='$dis',payment='$payment',image='$file' WHERE id='$id'";
+        if(!empty($_FILES['file']['name'])){
+            $file=$_FILES['file']['name'];
+            $tmp_name=$_FILES['file']['tmp_name'];
+            $path='image/'.$file;
+            move_uploaded_file($tmp_name,$path);
+            $update="UPDATE tbl_product SET pro_name='$name', qty='$qty', price='$price', total='$total', discount='$dis', payment='$payment', image='$file' WHERE id='$id'";
+        }else{
+            $update="UPDATE tbl_product SET pro_name='$name', qty='$qty', price='$price', total='$total', discount='$dis', payment='$payment' WHERE id='$id'";
+        }
         $result=$conn->query($update);
         if($result){
             header('location:table.php');
         }
+            
     }
 ?>

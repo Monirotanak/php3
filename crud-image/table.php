@@ -53,10 +53,7 @@
                                     height="40px" class="rounded-circle" alt="">
                             </td>
                             <td>
-                                <form action="delete.php" method="post" style="display:inline-block;">
-                                    <input type="hidden" name="id" value="'.$row['id'].'">
-                                    <button type="submit" name="btnDelete" class="btn btn-outline-danger">Delete</button>
-                                </form>
+                                <a href="delete.php?id='.$row['id'].'" class="btn btn-outline-danger" onclick="return confirm(\'Are you sure?\')">Delete</a>
                                 <button id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-warning">Edit</button>
                             </td>
                         </tr>
@@ -87,7 +84,7 @@
                                 </div>
                                 <div class="mb-2">
                                     <label for="price" class="form-label">Price</label>
-                                    <input id="price" name="price" type="number" class="form-control" placeholder="Price...">
+                                    <input id="price" name="price" step="0.01" type="number" class="form-control" placeholder="Price...">
                                 </div>
                                 <div class="mb-2">
                                     <label for="file" class="form-label">Image</label> <br>
